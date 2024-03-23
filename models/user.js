@@ -23,6 +23,8 @@ const userSchema = new Schema(
   { timestamps: true }
 );
 
+//if User exist user User
+//if User doesnot exist create model
 const User = mongoose.models.User || mongoose.model('User', userSchema);
 
 export default User;

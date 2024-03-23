@@ -26,6 +26,23 @@ function RegisterPage() {
     }
 
     try {
+      const resCheckUser = await fetch('http://localhost:3000/api/checkUser', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email,
+        }),
+      });
+
+      const { user } = await resCheckUser.json();
+
+      if (user) {
+        setError('User already exists!');
+        return;
+      }
+
       const res = await fetch('http://localhost:3000/api/register', {
         method: 'POST',
         headers: {
