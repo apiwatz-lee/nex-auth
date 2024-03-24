@@ -1,4 +1,6 @@
+'use client';
 import Link from 'next/link';
+import { signOut } from 'next-auth/react';
 
 function Navbar() {
   return (
@@ -14,6 +16,14 @@ function Navbar() {
             </li>
             <li>
               <Link href='/register'>Sign Up</Link>
+            </li>
+            <li>
+              <a
+                onClick={() => signOut()}
+                className='bg-red-500 text-white border py-2 px-3 rounded-md text-lg my-2'
+              >
+                Logout
+              </a>
             </li>
           </ul>
         </div>
